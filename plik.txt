@@ -1,0 +1,31 @@
+Wzorzec projektowy dekorator
+W tym artykule przeczytasz o jednym z wzorców projektowych – o dekoratorze. Na przykładzie pokażę Ci sposób jego użycia i implementacji. Diagramy UML pomogą Ci zrozumieć relację pomiędzy klasami w tym wzorcu projektowym. Ćwiczenie zawarte na końcu artykułu pozwoli Ci sprawdzić wiedzę w praktyce.
+
+
+Problem do rozwiązania
+
+Wyobraź sobie restaurację, w której możesz zjeść pizzę. Właściciel restauracji daje Ci do wyboru 10 różnych dodatków. Możesz skomponować pizzę samodzielnie używając dostępnych dodatków. Każdy z dodatków ma swoją cenę i może być użyty wyłącznie jeden raz. Właściciel restauracji mógłby wypisać wszystkie kombinacje z tych 10 dodatków. Menu miałoby wtedy 1023 pozycje, 1024 jeśli wliczymy Margharitę… Trochę dużo ;).
+
+Właściciel podszedł do sprawy inaczej. Nadal daje Ci dowolność w wyborze dodatków, jednak wycenia każdy z nich jako osobną pizzę. Na przykład pizza z szynką, pizza z bazylią, pizza z mozzarellą i tak dalej. Następnie pozwala Ci łączyć ze sobą te pizze w dowolny sposób. Na przykład pizza bez żadnych dodatków kosztuje 15zł. Pizza z szynką kosztuje o 7 zł więcej niż pizza bazowa. Pizza z bazylią kosztuje o 2 zł więcej niż pizza bazowa.
+
+Dzięki takiemu podejściu w menu znajduje się 11 pozycji. Cena pizzy bez dodatków i cena każdego dodatku określona jako cena pizzy bazowej + X zł. Można powiedzieć, że właściciel restauracji użył wzorca dekoratora do opracowania cennika1.
+
+Podobne problemy występują w projektach informatycznych. Zdarzają się sytuacje, w których trzeba rozszerzyć działanie pewnego obiektu. Możliwych rozszerzeń jest wiele, jeszcze więcej jest kombinacji tych rozszerzeń. Z pomocą w rozwiązaniu tego problemu przychodzi wzorzec projektowy dekorator (ang. decorator2).
+
+Wzorzec dekoratorPermalink
+Diagramy klasPermalink
+Istnieje wiele możliwości implementacji tego wzorca projektowego. Diagram klas poniżej pokazuje najprostszą z nich:
+
+
+Wzorzec projektowy dekorator (ang. decorator)
+DecoratorA i DecoratorB dekorują klasę Component. Dekoratory zawierają instancję klasy Component.
+
+Często ten wzorzec projektowy przedstawiany jest w bardziej skomplikowany sposób:
+
+
+Wzorzec projektowy dekorator (ang. decorator)
+W tym przypadku dekoratory mają wspólnego przodka, abstrakcyjną klasę Decorator. Sam komponent, który jest dekorowany także jest klasą abstrakcyjną, która posiada swoje konkretne implementacje. Na diagramie wyżej jest to ConcreteComponent.
+
+Nie są to jedyne możliwe wersje implementacji tego wzorca. Przykładem innej implementacji może być użycie interfejsów w miejscu klasy komponentu. Inną modyfikacją może być użycie kompozycji w miejscu agregacji. Obie zmiany nie wpływają znacząco na implementację tego wzorca projektowego.
+
+Wzorzec projektowy dekorator pozwala na wielokrotne rozszerzenie funkcjonalności obiektu poprzez „nakładanie” na siebie dekoratorów.
